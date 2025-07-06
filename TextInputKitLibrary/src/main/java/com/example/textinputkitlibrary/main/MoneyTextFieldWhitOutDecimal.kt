@@ -12,6 +12,7 @@ import com.example.textinputkitlibrary.core.model.InputModel
 import com.example.textinputkitlibrary.core.uitextfield.BaseTextFieldComposeView
 import com.example.textinputkitlibrary.utils.formatMoney
 import com.example.textinputkitlibrary.utils.getIconByStatus
+import com.example.textinputkitlibrary.utils.keyboardMoneyPermit
 
 class MoneyTextFieldWhitOutDecimal(
     override var textInputModel: InputModel,
@@ -34,7 +35,7 @@ class MoneyTextFieldWhitOutDecimal(
         ) {
             when (it) {
                 is ActionsListeners.OnValueChange -> {
-                    if(it.text.text.all { it in textInputModel.properties.keyBoardPermit }){
+                    if(it.text.text.all { it in keyboardMoneyPermit }){
                         var formattedText = it.text.text.replace("$", "").replace(",", "")
                         formattedText = formattedText.ifEmpty { "0" }
                         val newValueMoney = formattedText.toDouble().formatMoney()

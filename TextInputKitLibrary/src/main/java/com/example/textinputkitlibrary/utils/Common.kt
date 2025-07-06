@@ -30,6 +30,9 @@ import java.text.DecimalFormat
 import java.util.Locale
 
 @Internal
+const val keyboardMoneyPermit ="$.,1234567890"
+
+@Internal
 fun Double.formatMoney(): String {
     val format = DecimalFormat.getCurrencyInstance(Locale.forLanguageTag("es-MX"))
     format.minimumFractionDigits = 0

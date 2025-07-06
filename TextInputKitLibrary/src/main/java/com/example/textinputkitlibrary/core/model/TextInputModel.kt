@@ -18,8 +18,7 @@ data class InputModel(
 
 data class InputProperties(
     val maxLength: Int = 0,
-    val containsRegex: String = "",
-    val keyBoardPermit: String = "",
+    val keyBoardPasswordPermit: String = "",
     val keyboardType: KeyboardType = KeyboardType.Text,
     val imeAction: ImeAction = ImeAction.Done,
     val countLength:Boolean = false,

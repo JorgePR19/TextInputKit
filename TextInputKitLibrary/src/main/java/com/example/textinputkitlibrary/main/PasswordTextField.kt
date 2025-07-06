@@ -39,7 +39,7 @@ class PasswordTextField(
         ) {
             when (it) {
                 is ActionsListeners.OnValueChange -> {
-                    if (it.text.text.all { it in textInputModel.properties.keyBoardPermit })
+                    if (it.text.text.all { it in textInputModel.properties.keyBoardPasswordPermit })
                         listeners.onAction(textInputModel.id, action = it)
                 }
                 ActionsListeners.OnEndIconAction -> {
