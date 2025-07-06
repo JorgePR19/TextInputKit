@@ -11,6 +11,7 @@ import com.example.textinputkitlibrary.core.base.ListenerTextInput
 import com.example.textinputkitlibrary.core.model.InputModel
 import com.example.textinputkitlibrary.core.uitextfield.BaseTextFieldComposeView
 import com.example.textinputkitlibrary.utils.formatMoney
+import com.example.textinputkitlibrary.utils.getIconByStatus
 
 class MoneyTextFieldWhitOutDecimal(
     override var textInputModel: InputModel,
@@ -24,6 +25,7 @@ class MoneyTextFieldWhitOutDecimal(
         BaseTextFieldComposeView(
             inputModel = textInputModel,
             modifier = modifier,
+            endIcon = getIconByStatus(textInputModel.textFieldStatus, textInputModel.typesIcons),
             keyboardOptions = KeyboardOptions(
                 autoCorrect = false,
                 keyboardType = textInputModel.properties.keyboardType,

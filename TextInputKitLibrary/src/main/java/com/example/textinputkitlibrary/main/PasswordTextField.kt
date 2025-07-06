@@ -8,12 +8,11 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.VisualTransformation
+import com.example.textinputkitlibrary.R
+import com.example.textinputkitlibrary.core.base.ActionsListeners
 import com.example.textinputkitlibrary.core.base.BaseTextInput
 import com.example.textinputkitlibrary.core.base.ListenerTextInput
 import com.example.textinputkitlibrary.core.model.InputModel
-import com.example.textinputkitlibrary.core.model.TypesIcons
-import com.example.textinputkitlibrary.R
-import com.example.textinputkitlibrary.core.base.ActionsListeners
 import com.example.textinputkitlibrary.core.uitextfield.BaseTextFieldComposeView
 import com.example.textinputkitlibrary.utils.ui.PasswordTransformation
 
@@ -26,13 +25,11 @@ class PasswordTextField(
     @Composable
     override fun RenderView(listeners: ListenerTextInput) {
         var showPass by rememberSaveable { mutableStateOf(false) }
-        textInputModel =
-            textInputModel.copy(typesIcons = TypesIcons(endIcon = if (!showPass) R.drawable.eye_visible_icon else R.drawable.eye_invisible_icon))
-
 
         BaseTextFieldComposeView(
             inputModel = textInputModel,
             modifier = modifier,
+            endIcon  = if (!showPass) R.drawable.eye_visible_icon else R.drawable.eye_invisible_icon,
             visualTransformation = if (showPass) VisualTransformation.None else PasswordTransformation(),
             keyboardOptions = KeyboardOptions(
                 autoCorrect = false,

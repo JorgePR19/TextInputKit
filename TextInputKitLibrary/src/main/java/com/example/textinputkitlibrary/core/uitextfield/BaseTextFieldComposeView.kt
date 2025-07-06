@@ -1,6 +1,7 @@
 package com.example.textinputkitlibrary.core.uitextfield
 
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -44,6 +45,7 @@ fun BaseTextFieldComposeView(
     inputModel: InputModel,
     modifier: Modifier,
     keyboardOptions: KeyboardOptions,
+    @DrawableRes endIcon: Int? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onChangeStateUi: (ActionsListeners) -> Unit,
 ) {
@@ -89,7 +91,7 @@ fun BaseTextFieldComposeView(
                         innerTextField,
                         value = inputModel.textValue.text,
                         placeholder = inputModel.placeHolder,
-                        endIcon = inputModel.typesIcons.endIcon,
+                        endIcon = endIcon,
                         endIconAction = {
                             onChangeStateUi(ActionsListeners.OnEndIconAction)
                         },

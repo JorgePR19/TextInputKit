@@ -16,6 +16,7 @@ import androidx.compose.ui.text.TextStyle
 import coil.compose.rememberAsyncImagePainter
 import com.example.textinputkitlibrary.core.base.KeyBoardActions
 import com.example.textinputkitlibrary.core.base.TextFieldStatus
+import com.example.textinputkitlibrary.core.model.TypesIcons
 import com.example.textinputkitlibrary.utils.ui.DimensDp
 import com.example.textinputkitlibrary.utils.ui.Styles.roboto14Regular
 import com.example.textinputkitlibrary.utils.ui.gray800Color
@@ -83,5 +84,17 @@ fun StarImage(
                 .background(Color.White)
                 .border(width = DimensDp.Dp1, color = gray900Color, shape = CircleShape)
         )
+    }
+}
+
+@Internal
+fun getIconByStatus(textFieldStatus: TextFieldStatus, dsTypesIcons: TypesIcons): Int? {
+    return when(textFieldStatus){
+        TextFieldStatus.ERROR -> dsTypesIcons.errorIcon
+        TextFieldStatus.SUCCESS -> dsTypesIcons.successIcon
+        TextFieldStatus.WARNING -> dsTypesIcons.warning
+        else ->{
+            dsTypesIcons.endIcon
+        }
     }
 }
